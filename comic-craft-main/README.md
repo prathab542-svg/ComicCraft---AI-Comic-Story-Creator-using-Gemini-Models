@@ -7,9 +7,9 @@ finished comic as a multi-page PDF.
 
 ## Team
 
-- **Team ID:** SWTID-2026-8368
-- **Team Leader:** Nivriti Muthu Vairavan
-- **Team Members:** Fathima Fahmiya S, Mounika K M, Tharun P, and Yuvaraj B
+- **Team ID:** 
+- **Team Leader:** PRATHAB.V
+- **Team Members:** CHANDRAMOHAN S , GOKULAKRISHNAN K ,PUGAZH J
 
 ## Features
 
