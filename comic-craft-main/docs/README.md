@@ -6,16 +6,15 @@ Documents follow the AI-ML and GenAI Track project template structure and layout
 
 ## Team
 
-- **Team ID:** SWTID-2026-8368
-- **Team Leader:** Nivriti Muthu Vairavan
+- **Team ID:** 
+- **Team Leader:** prathab v
 
 | # | Name |
 |---|------|
-| 1 | Nivriti Muthu Vairavan |
-| 2 | Fathima Fahmiya S |
-| 3 | Mounika K M |
-| 4 | Tharun P |
-| 5 | Yuvaraj B |
+| 1 | prathab v |
+| 2 | chandramohan s |
+| 3 | gokulakrishnan k |
+| 4 | pugazh j |
 
 ## 1. Brainstorming & Ideation
 - [Brainstorming & Idea Prioritization.pdf](1.%20Brainstorming%20&%20Ideation/Brainstorming%20&%20Idea%20Prioritization.pdf) - Brainstorming grid and idea prioritisation.
@@ -55,27 +54,4 @@ Documents follow the AI-ML and GenAI Track project template structure and layout
 - [Scalability & Future Plan.pdf](8.Project%20Demonstration/Scalability%20&%20Future%20Plan.pdf) - Limitations, scalability plan and roadmap.
 - [Team Involvement in Demonstration.pdf](8.Project%20Demonstration/Team%20Involvement%20in%20Demonstration.pdf) - Roles of team members in the demo.
 
-## Document Owners
 
-| Folder | Owner |
-|--------|-------|
-| 1. Brainstorming & Ideation | Fathima Fahmiya S (support: Yuvaraj B) |
-| 2. Requirement Analysis | Fathima Fahmiya S (support: Nivriti Muthu Vairavan) |
-| 3. Project Design Phase | Nivriti Muthu Vairavan (support: Fathima Fahmiya S) |
-| 4. Project Planning Phase | Fathima Fahmiya S |
-| 5. Project Development Phase | Mounika K M and Nivriti Muthu Vairavan |
-| 6.Project Testing | Tharun P |
-| 7.Project Documentation | Yuvaraj B |
-| 8.Project Demonstration | Yuvaraj B (support: whole team) |
-
-## Team Members
-
-Made by Team ComicCraft:
-
-| # | Name | Role | Contribution |
-|---|------|------|--------------|
-| 1 | Fathima Fahmiya S | Backend Developer | FastAPI routes, form handling, JSON API, error handling, Gemini outline and story integration |
-| 2 | Nivriti Muthu Vairavan | Team Leader & AI/Image Engineer | Planning and coordination; Stable Diffusion v1.5 pipeline, MPS/fp16 optimisation, warm-up, prompt design for panel images |
-| 3 | Mounika K M | Frontend & UI/UX Developer | Jinja2 templates, glass-style home page, background, responsive CSS, loading state |
-| 4 | Tharun P | Testing & QA Engineer | pytest suite (24 tests, mocked AI), smoke and performance tests, quota and error scenarios |
-| 5 | Yuvaraj B | Documentation & Demo Coordinator | Project documents, README, PDF export and layout builder checks, demo planning |
