@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Export Successful</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: #f6f1e7;
+            color: #2b2b2b;
+            margin: 0;
+            padding: 24px
+        }
+
+        .card {
+            max-width: 760px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, .12)
+        }
+
+        h1 {
+            text-align: center
+        }
+
+        label {
+            display: block;
+            margin: 14px 0 4px;
+            font-weight: bold
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bbb;
+            border-radius: 8px;
+            font: inherit
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 22px;
+            background: #d9482b;
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+            font: inherit;
+            cursor: pointer;
+            text-decoration: none
+        }
+
+        .btn:hover {
+            background: #b83a20
+        }
+
+        .center {
+            text-align: center
+        }
+
+        .panel {
+            margin: 24px 0;
+            padding: 16px;
+            border: 2px solid #222;
+            border-radius: 8px
+        }
+
+        .panel img {
+            width: 100%;
+            border-radius: 6px
+        }
+
+        .scene {
+            font-style: italic
+        }
+
+        .ref {
+            font-size: .85em;
+            color: #666
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card center">
+        <h1>Comic Exported!</h1>
+        <p>Your AI-powered comic was created and downloaded successfully.</p>
+        {% if pdf_path %}<p class="ref">Saved as {{ pdf_path.split('/')[-1] }}</p>
+        <a class="btn" id="dl" href="{{ pdf_path }}" download>Download PDF</a>
+        <script>document.getElementById('dl').click();</script>{% endif %}
+        <a class="btn" href="/">Go Create Another Comic</a>
+    </div>
+</body>
+
+</html>

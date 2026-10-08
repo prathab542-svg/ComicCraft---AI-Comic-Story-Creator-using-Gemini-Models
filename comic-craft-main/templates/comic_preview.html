@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Your Comic</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: #f6f1e7;
+            color: #2b2b2b;
+            margin: 0;
+            padding: 24px
+        }
+
+        .card {
+            max-width: 760px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, .12)
+        }
+
+        h1 {
+            text-align: center
+        }
+
+        label {
+            display: block;
+            margin: 14px 0 4px;
+            font-weight: bold
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bbb;
+            border-radius: 8px;
+            font: inherit
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 22px;
+            background: #d9482b;
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+            font: inherit;
+            cursor: pointer;
+            text-decoration: none
+        }
+
+        .btn:hover {
+            background: #b83a20
+        }
+
+        .center {
+            text-align: center
+        }
+
+        .panel {
+            margin: 24px 0;
+            padding: 16px;
+            border: 2px solid #222;
+            border-radius: 8px
+        }
+
+        .panel img {
+            width: 100%;
+            border-radius: 6px
+        }
+
+        .scene {
+            font-style: italic
+        }
+
+        .ref {
+            font-size: .85em;
+            color: #666
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>Your Comic</h1>
+        {% for panel in layout %}<div class="panel">
+            <h2>Panel {{ panel.panel }}: {{ panel.title }}</h2>
+            <img src="{{ panel.image }}" alt="{{ panel.title }}">
+            <p class="scene">{{ panel.scene }}</p>
+            {% if panel.caption %}<p><strong>Caption:</strong> {{ panel.caption }}</p>{% endif %}
+            <p><strong>Narration:</strong> {{ panel.text }}</p>
+            <p class="ref">Image prompt: {{ panel.image_prompt }}</p>
+        </div>{% endfor %}
+        <div class="center"><a class="btn" href="/export-success?pdf={{ pdf_path | urlencode }}">Download
+                Your Comic as PDF</a></div>
+    </div>
+</body>
+
+</html>

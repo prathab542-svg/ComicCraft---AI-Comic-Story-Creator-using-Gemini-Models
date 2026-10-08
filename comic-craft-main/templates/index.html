@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ComicCraft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Poppins, -apple-system, Segoe UI, Arial, sans-serif;
+      color: #fff;
+      background: #0b1d33 url('/static/bg.jpg') center/cover no-repeat fixed;
+      position: relative
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(6, 20, 45, .78) 0%, rgba(6, 20, 45, .35) 50%, rgba(6, 20, 45, .1) 100%);
+      pointer-events: none
+    }
+
+    .wrap {
+      position: relative;
+      max-width: 1180px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 470px;
+      gap: 48px;
+      align-items: center;
+      padding: 40px 28px
+    }
+
+    .hero h1 {
+      font-family: Bangers, Impact, sans-serif;
+      font-weight: 400;
+      font-size: clamp(3.4rem, 7vw, 6rem);
+      letter-spacing: .04em;
+      line-height: .95;
+      background: linear-gradient(180deg, #fff 20%, #ffe27a 60%, #ff9d3c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 4px 0 #0b2a63) drop-shadow(0 8px 18px rgba(0, 0, 0, .45))
+    }
+
+    .hero p {
+      margin-top: 18px;
+      max-width: 430px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #e6f0ff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, .5)
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px
+    }
+
+    .chips span {
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: .8rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, .14);
+      border: 1px solid rgba(255, 255, 255, .35);
+      backdrop-filter: blur(8px)
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, .14);
+      border: 1px solid rgba(255, 255, 255, .4);
+      border-radius: 24px;
+      padding: 30px 28px 26px;
+      backdrop-filter: blur(22px) saturate(1.5);
+      -webkit-backdrop-filter: blur(22px) saturate(1.5);
+      box-shadow: 0 20px 60px rgba(0, 10, 40, .5), inset 0 1px 0 rgba(255, 255, 255, .5)
+    }
+
+    .panel h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 4px
+    }
+
+    .panel .sub {
+      font-size: .82rem;
+      color: #d3e4ff;
+      margin-bottom: 18px
+    }
+
+    .field {
+      margin-top: 16px
+    }
+
+    .field>label,
+    .field>.lbl {
+      display: block;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: #cfe2ff;
+      margin-bottom: 8px
+    }
+
+    textarea,
+    input[type=text] {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, .35);
+      background: rgba(8, 24, 52, .45);
+      color: #fff;
+      font: .95rem Poppins, sans-serif;
+      transition: .15s
+    }
+
+    textarea {
+      resize: none;
+      height: 84px
+    }
+
+    textarea::placeholder,
+    input::placeholder {
+      color: rgba(255, 255, 255, .55)
+    }
+
+    textarea:focus,
+    input[type=text]:focus {
+      outline: 0;
+      border-color: #ffd24a;
+      box-shadow: 0 0 0 3px rgba(255, 210, 74, .28);
+      background: rgba(8, 24, 52, .6)
+    }
+
+    .opts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .opts input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none
+    }
+
+    .opts label {
+      cursor: pointer;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: .84rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .3);
+      transition: .15s;
+      user-select: none
+    }
+
+    .opts label:hover {
+      background: rgba(255, 255, 255, .24)
+    }
+
+    .opts input:checked+label {
+      background: linear-gradient(135deg, #ffd24a, #ff8f2e);
+      color: #2b1700;
+      border-color: transparent;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(255, 150, 40, .45)
+    }
+
+    .opts input:focus-visible+label {
+      outline: 2px solid #fff;
+      outline-offset: 2px
+    }
+
+    .go {
+      width: 100%;
+      margin-top: 24px;
+      padding: 15px;
+      border: 0;
+      border-radius: 14px;
+      cursor: pointer;
+      font: 700 1.05rem Poppins, sans-serif;
+      letter-spacing: .03em;
+      color: #2b1700;
+      background: linear-gradient(135deg, #ffe27a, #ff9d3c);
+      box-shadow: 0 8px 24px rgba(255, 150, 40, .5), inset 0 1px 0 rgba(255, 255, 255, .6);
+      transition: .15s
+    }
+
+    .go:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255, 150, 40, .6), inset 0 1px 0 rgba(255, 255, 255, .6)
+    }
+
+    .go:disabled {
+      opacity: .75;
+      cursor: wait;
+      transform: none
+    }
+
+    @media(max-width:900px) {
+      .wrap {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 28px 16px
+      }
+
+      .hero {
+        text-align: center
+      }
+
+      .hero p {
+        margin-inline: auto
+      }
+
+      .chips {
+        justify-content: center
+      }
+
+      body::before {
+        background: rgba(6, 20, 45, .55)
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>ComicCraft</h1>
+      <p>Turn a single idea into a fully illustrated comic. AI writes the story, paints every panel, and hands you a
+        print-ready PDF.</p>
+      <div class="chips"><span>5 AI panels</span><span>Story &amp; dialogue</span><span>PDF export</span></div>
+    </section>
+
+    <form class="panel" action="/generate" method="post" id="f">
+      <h2>&#9999;&#65039; Create Your Comic</h2>
+      <p class="sub">Describe your story and pick a look.</p>
+
+      <div class="field"><label for="prompt">Story prompt</label>
+        <textarea id="prompt" name="prompt" required placeholder="A brave fox explores an enchanted forest"></textarea>
+      </div>
+
+      <div class="field"><label for="character">Main character</label>
+        <input type="text" id="character" name="character" required placeholder="e.g. Rio">
+      </div>
+
+      <div class="field"><span class="lbl">Setting</span>
+        <div class="opts">
+          <input type="radio" name="setting" id="s1" value="forest" checked><label for="s1">&#127794; Forest</label>
+          <input type="radio" name="setting" id="s2" value="school"><label for="s2">&#127979; School</label>
+          <input type="radio" name="setting" id="s3" value="space"><label for="s3">&#128640; Space</label>
+          <input type="radio" name="setting" id="s4" value="city"><label for="s4">&#127750; City</label>
+        </div>
+      </div>
+
+      <div class="field"><span class="lbl">Story tone</span>
+        <div class="opts">
+          <input type="radio" name="tone" id="t1" value="light-hearted" checked><label for="t1">Light-hearted</label>
+          <input type="radio" name="tone" id="t2" value="dramatic"><label for="t2">Dramatic</label>
+          <input type="radio" name="tone" id="t3" value="poetic"><label for="t3">Poetic</label>
+          <input type="radio" name="tone" id="t4" value="funny"><label for="t4">Funny</label>
+        </div>
+      </div>
+
+      <div class="field"><span class="lbl">Art style</span>
+        <div class="opts">
+          <input type="radio" name="style" id="a1" value="anime" checked><label for="a1">Anime</label>
+          <input type="radio" name="style" id="a2" value="pixel art"><label for="a2">Pixel art</label>
+          <input type="radio" name="style" id="a3" value="comic book"><label for="a3">Comic book</label>
+          <input type="radio" name="style" id="a4" value="realistic"><label for="a4">Realistic</label>
+        </div>
+      </div>
+
+      <button class="go" type="submit" id="b">Generate Comic</button>
+    </form>
+  </main>
+  <script>
+    document.getElementById('f').addEventListener('submit', function () { var b = document.getElementById('b'); b.disabled = true; b.textContent = 'Generating… this can take several minutes' });
+  </script>
+</body>
+
+</html>
